@@ -57,13 +57,15 @@ It is assumed that you've deployed your function
 - Copy your private key to current folder
 - build Kafka Connect container (with custom Connector) - `docker build --build-arg PRIVATE_KEY_NAME=<your_private_key> -t fn-kafka-connect-sink .` e.g. `docker build --build-arg PRIVATE_KEY_NAME=private_key.pem -t fn-kafka-connect-sink .`
 
-	....
-	Successfully built bea369ecb8b4
-	Successfully tagged fn-kafka-connect-sink:latest
+		....
+		Successfully built bea369ecb8b4
+		Successfully tagged fn-kafka-connect-sink:latest
 
 ### Install
 
 - Start Kafka Connect in docker - `docker run --rm -it --name=kafka-connect --net=host -e CONNECT_BOOTSTRAP_SERVERS=localhost:9092 -e CONNECT_REST_PORT=8082 -e CONNECT_GROUP_ID="default" -e CONNECT_CONFIG_STORAGE_TOPIC="default.config" -e CONNECT_OFFSET_STORAGE_TOPIC="default.offsets" -e CONNECT_STATUS_STORAGE_TOPIC="default.status" -e CONNECT_KEY_CONVERTER="org.apache.kafka.connect.storage.StringConverter" -e CONNECT_VALUE_CONVERTER="org.apache.kafka.connect.storage.StringConverter" -e CONNECT_INTERNAL_KEY_CONVERTER="org.apache.kafka.connect.json.JsonConverter" -e CONNECT_INTERNAL_VALUE_CONVERTER="org.apache.kafka.connect.json.JsonConverter" -e CONNECT_REST_ADVERTISED_HOST_NAME="localhost" -e CONNECT_PLUGIN_PATH=/usr/share/java,/etc/kafka-connect/jars -e CONNECT_CONFIG_STORAGE_REPLICATION_FACTOR=1 -e CONNECT_STATUS_STORAGE_REPLICATION_FACTOR=1 -e CONNECT_OFFSET_STORAGE_REPLICATION_FACTOR=1 fn-kafka-connect-sink`
+
+Logs...
 
 
 		[2018-11-02 17:48:38,256] INFO [Worker clientId=connect-1, groupId=default] (Re-)joining group (org.apache.kafka.clients.consumer.internals.AbstractCoordinator)
