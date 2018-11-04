@@ -10,14 +10,13 @@
 
 **Parallelism**
 
-Depends on `tasks.max` and no. of partitions in the (source) Kafka topic. For e.g., if the topic has 5 partitions and `tasks.max` is also 5, then at a given point 5 tasks (in separate) will be spawned in parallel to accept data from partitions and call your functions - which will result in 
+Depends on `tasks.max` and no. of partitions in the (source) Kafka topic. For e.g., if the topic has 5 partitions and `tasks.max` is also 5, then at a given point 5 tasks (in separate) will be spawned in parallel to accept data from partitions and call your functions - which will result in 5 function instances as well
 
-
-It is assumed that you've already deployed your function 
+> It is assumed that you've already deployed your function 
 
 ## Infra setup
 
-> This is not required if your Kafka cluster is already set up - just point Kafka Connect to the existing Kafka cluster in that case
+> This is not required if your Kafka cluster is already set up. Move to the `Kafka Connect Connector` section and just point Kafka Connect to the existing Kafka cluster in that case
 
 ### Zookeeper
 
