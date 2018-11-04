@@ -1,6 +1,6 @@
-# Kafka Connector to invoke functions (using OCI Signature)
+# Kafka Connector to invoke functions
 
-(experimential) Kafka Sink Connector which invokes Functions using OCI Signature
+(experimential) Kafka Sink Connector which invokes Functions using [OCI Signature](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/signingrequests.htm)
 
 **TL;DR**
 
@@ -8,6 +8,9 @@
 - drop messages in your kafka topic ...
 - ... your function(s) gets invoked (with the payload which your sent to Kafka)
 
+**Parallelism**
+
+Depends on `tasks.max` and no. of partitions in the (source) Kafka topic. For e.g., if the topic has 5 partitions and `tasks.max` is also 5, then at a given point 5 tasks (in separate) will be spawned in parallel to accept data from partitions and call your functions - which will result in 
 
 
 It is assumed that you've already deployed your function 
