@@ -1,8 +1,20 @@
-# Kafka Connect Connector to invoke function (using OCI Signature)
+# Kafka Connector to invoke functions (using OCI Signature)
 
-It is assumed that you've deployed your function 
+(experimential) Kafka Sink Connector which invokes Functions using OCI Signature
+
+**TL;DR**
+
+- setup and start your connector
+- drop messages in your kafka topic ...
+- ... your function(s) gets invoked (with the payload which your sent to Kafka)
+
+
+
+It is assumed that you've already deployed your function 
 
 ## Infra setup
+
+> This is not required if your Kafka cluster is already set up - just point Kafka Connect to the existing Kafka cluster in that case
 
 ### Zookeeper
 
